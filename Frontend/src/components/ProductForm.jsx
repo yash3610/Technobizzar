@@ -110,66 +110,64 @@ const ProductForm = ({ onSubmit, editingProduct, onCancelEdit, isSubmitting }) =
           />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-          <div>
-            <label className="block text-xs sm:text-sm font-medium text-text-primary mb-1">Price (£)</label>
-            <input
-              type="number"
-              name="price"
-              value={formData.price}
+        <div>
+          <label className="block text-xs sm:text-sm font-medium text-text-primary mb-1">Price (£)</label>
+          <input
+            type="number"
+            name="price"
+            value={formData.price}
+            onChange={handleChange}
+            required
+            min="0"
+            step="0.01"
+            placeholder="0.00"
+            className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base bg-background border border-border-dark rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-text-primary placeholder-text-secondary"
+          />
+        </div>
+
+        <div>
+          <label className="block text-xs sm:text-sm font-medium text-text-primary mb-1">Category</label>
+          {showNewCategory ? (
+            <div className="flex gap-2">
+              <input
+                type="text"
+                value={newCategory}
+                onChange={(e) => setNewCategory(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), handleAddCategory())}
+                placeholder="Enter new category"
+                autoFocus
+                className="flex-1 px-3 sm:px-4 py-2 text-sm sm:text-base bg-background border border-border-dark rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-text-primary placeholder-text-secondary"
+              />
+              <button
+                type="button"
+                onClick={handleAddCategory}
+                className="px-4 sm:px-6 py-2 bg-primary hover:bg-secondary text-background rounded-lg transition-colors text-sm font-medium whitespace-nowrap"
+              >
+                Add
+              </button>
+              <button
+                type="button"
+                onClick={handleCancelNewCategory}
+                className="px-4 sm:px-6 py-2 bg-background hover:bg-surface text-text-primary border border-border-dark rounded-lg transition-colors text-sm font-medium whitespace-nowrap"
+              >
+                Cancel
+              </button>
+            </div>
+          ) : (
+            <select
+              name="category"
+              value={formData.category}
               onChange={handleChange}
               required
-              min="0"
-              step="0.01"
-              placeholder="0.00"
-              className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base bg-background border border-border-dark rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-text-primary placeholder-text-secondary"
-            />
-          </div>
-
-          <div>
-            <label className="block text-xs sm:text-sm font-medium text-text-primary mb-1">Category</label>
-            {showNewCategory ? (
-              <div className="flex gap-2">
-                <input
-                  type="text"
-                  value={newCategory}
-                  onChange={(e) => setNewCategory(e.target.value)}
-                  onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), handleAddCategory())}
-                  placeholder="Enter new category"
-                  autoFocus
-                  className="flex-1 px-3 sm:px-4 py-2 text-sm sm:text-base bg-background border border-border-dark rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-text-primary placeholder-text-secondary"
-                />
-                <button
-                  type="button"
-                  onClick={handleAddCategory}
-                  className="px-4 sm:px-6 py-2 bg-primary hover:bg-secondary text-background rounded-lg transition-colors text-sm font-medium whitespace-nowrap"
-                >
-                  Add
-                </button>
-                <button
-                  type="button"
-                  onClick={handleCancelNewCategory}
-                  className="px-4 sm:px-6 py-2 bg-background hover:bg-surface text-text-primary border border-border-dark rounded-lg transition-colors text-sm font-medium whitespace-nowrap"
-                >
-                  Cancel
-                </button>
-              </div>
-            ) : (
-              <select
-                name="category"
-                value={formData.category}
-                onChange={handleChange}
-                required
-                className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base bg-background border border-border-dark rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-text-primary"
-              >
-                <option value="" disabled>Select Category</option>
-                {categories.map((cat) => (
-                  <option key={cat} value={cat}>{cat}</option>
-                ))}
-                <option value="+ Add New Category" className="text-primary font-medium">+ Add New Category</option>
-              </select>
-            )}
-          </div>
+              className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base bg-background border border-border-dark rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-text-primary"
+            >
+              <option value="" disabled>Select Category</option>
+              {categories.map((cat) => (
+                <option key={cat} value={cat}>{cat}</option>
+              ))}
+              <option value="+ Add New Category" className="text-primary font-medium">+ Add New Category</option>
+            </select>
+          )}
         </div>
 
         <div className="flex items-center gap-2 py-2">
