@@ -129,7 +129,7 @@ const ProductForm = ({ onSubmit, editingProduct, onCancelEdit, isSubmitting }) =
           <div>
             <label className="block text-xs sm:text-sm font-medium text-text-primary mb-1">Category</label>
             {showNewCategory ? (
-              <div className="flex flex-col sm:flex-row gap-2">
+              <div className="flex gap-2">
                 <input
                   type="text"
                   value={newCategory}
@@ -139,22 +139,20 @@ const ProductForm = ({ onSubmit, editingProduct, onCancelEdit, isSubmitting }) =
                   autoFocus
                   className="flex-1 px-3 sm:px-4 py-2 text-sm sm:text-base bg-background border border-border-dark rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-text-primary placeholder-text-secondary"
                 />
-                <div className="flex gap-2">
-                  <button
-                    type="button"
-                    onClick={handleAddCategory}
-                    className="flex-1 sm:flex-none px-4 sm:px-3 py-2 bg-primary hover:bg-secondary text-background rounded-lg transition-colors text-sm font-medium"
-                  >
-                    Add
-                  </button>
-                  <button
-                    type="button"
-                    onClick={handleCancelNewCategory}
-                    className="flex-1 sm:flex-none px-4 sm:px-3 py-2 bg-background hover:bg-surface text-text-primary border border-border-dark rounded-lg transition-colors text-sm font-medium"
-                  >
-                    Cancel
-                  </button>
-                </div>
+                <button
+                  type="button"
+                  onClick={handleAddCategory}
+                  className="px-4 sm:px-6 py-2 bg-primary hover:bg-secondary text-background rounded-lg transition-colors text-sm font-medium whitespace-nowrap"
+                >
+                  Add
+                </button>
+                <button
+                  type="button"
+                  onClick={handleCancelNewCategory}
+                  className="px-4 sm:px-6 py-2 bg-background hover:bg-surface text-text-primary border border-border-dark rounded-lg transition-colors text-sm font-medium whitespace-nowrap"
+                >
+                  Cancel
+                </button>
               </div>
             ) : (
               <select
