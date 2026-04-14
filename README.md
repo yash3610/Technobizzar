@@ -2,6 +2,15 @@
 
 A full-stack MERN (MongoDB, Express, React, Node.js) application for managing products with a modern, responsive UI and robust backend API.
 
+🔹 *Frontend Live URL:*
+https://technobizzar.netlify.app/
+
+🔹 *Backend API URL:*
+https://techno-api.onrender.com
+
+🔹 *GitHub Repository (Full Source Code):*
+https://github.com/yash3610/Technobizzar
+
 ## 📋 Table of Contents
 
 - [Overview](#overview)
