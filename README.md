@@ -315,7 +315,7 @@ This project is licensed under the ISC License.
 
 ## 👨‍💻 Author
 
-Created with ❤️ by Vijay Shankar Shewale
+Created with ❤️ by Yash Hule
 
 ## 🙏 Acknowledgments
 
